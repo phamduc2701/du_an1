@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Product;
 
@@ -18,18 +20,36 @@ use App\Models\Product;
 */
 
 //table
-Route::view('','admin.admin');
+Route::view('', 'admin.admin');
 
 //categories
-    Route::get('category', [CategoryController::class, 'index'])->name('category.index');
-    Route::get('category/add', [CategoryController::class, 'add'])->name('category.add-cate');
-    Route::post('category/add', [CategoryController::class, 'saveAdd']);
-    Route::get('category/{id}/remove', [CategoryController::class, 'remove'])->name('category.remove'); 
+Route::prefix('category')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('category.index');
+        Route::get('/add', [CategoryController::class, 'add'])->name('category.add-cate');
+        Route::post('/add', [CategoryController::class, 'saveAdd']);
+        Route::get('/{id}/remove', [CategoryController::class, 'remove'])->name('category.remove');
+    });
 
 //products
+Route::prefix('product')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('', [ProductController::class, 'index'])->name('product.index');
+        Route::get('/add', [ProductController::class, 'add'])->name('product.add-product');
+        Route::post('/add', [ProductController::class, 'saveAdd']);
+        Route::get('/{id}/remove', [ProductController::class, 'remove'])->name('product.remove');
+        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+        Route::post('/edit/{id}', [ProductController::class, 'saveEdit']);
+    });
 
-    Route::get('product', [ProductController::class, 'index'])->name('product.index');
-    Route::get('/add', [ProductController::class, 'add'])->name('product.add-product');
-    Route::post('/add', [ProductController::class, 'saveAdd']);
-    Route::get('/{id}/remove', [ProductController::class, 'remove'])->name('product.remove');
-?>
+//Login
+Route::view('login', 'auth.login')->name('login');
+Route::post('login', [LoginController::class, 'stopLogin']);
+
+//Logout
+Route::any('logout', function () {
+    Auth::logout();
+    return redirect(route('homepage'));
+})->name('logout');

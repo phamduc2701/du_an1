@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $product = Product::all();
+        $product = Product::paginate(5);
         return view('admin.product.index', compact('product'));
+
     }
 
     public function add()
@@ -41,6 +43,24 @@ class ProductController extends Controller
     public function remove($id)
     {
         Product::destroy($id);
+        return redirect(route('product.index'));
+    }
+
+    public function edit($id)
+    {
+        $model = Product::find($id);
+        $category = Category::all();
+        if(!$model) return redirect(route('product.index'));
+        return view('admin.product.edit-product', compact('model', 'category'));
+    }
+    public function saveEdit($id, Request $request)
+    {
+        $model = Product::find($id);
+        $model->name = $request->name;
+        $model->price = $request->price;
+        $model->sale = $request->sale;
+        $model->detail = $request->detail;
+        $model->save();
         return redirect(route('product.index'));
     }
 }

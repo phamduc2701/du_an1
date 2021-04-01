@@ -7,7 +7,7 @@
   <title>Dự án | Nhóm 7 </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  @include('layouts.style')
+  @include('admin.layouts.style')
 
 </head>
 
@@ -193,6 +193,9 @@
     <aside class="control-sidebar control-sidebar-dark">
     </aside>
   </div>
+
+  <script src="https://cdn.tiny.cloud/1/d9ohvwty9z1atlko9m30bjqcd394zustxr4e6x5kpvvc29m6/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  @yield('page-script')
 </body>
 
 </html>
