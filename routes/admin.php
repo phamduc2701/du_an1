@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,15 @@ Route::prefix('product')
         Route::get('/{id}/remove', [ProductController::class, 'remove'])->name('product.remove');
         Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
         Route::post('/edit/{id}', [ProductController::class, 'saveEdit']);
+    });
+//post
+Route::prefix('post')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('', [PostController::class, 'index'])->name('post.index');
+        Route::get('/add', [PostController::class, 'add'])->name('post.add-post');
+        Route::post('/add', [PostController::class, 'saveAdd']);
+        Route::get('/{id}/remove', [PostController::class, 'remove'])->name('post.remove');
     });
 
 //Login

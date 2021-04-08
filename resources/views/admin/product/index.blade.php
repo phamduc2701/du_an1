@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="container">
+<h3 class="text-left">DANH SÁCH SẢN PHẨM</h3>
     <table class="table table-stripper">
         <thead>
             <th>Mã</th>
@@ -21,7 +22,7 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->name}}</td>
                     <td><img src="{{ asset($item->image) }}" width="100"></td>
-                    <td>{{$item->price}}đ/<span style="color: red">Kg</span></td>
+                    <td>{{ number_format($item->price) }}đ/<span style="color: red">Kg</span></td>
 
                     <td style="width: 250px">{{$item->detail}}</td>
                     <td>{{$item->category->name}}</td>

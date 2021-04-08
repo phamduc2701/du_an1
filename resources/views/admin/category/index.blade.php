@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <h3 class="text-left">THỂ LOẠI</h3>
+    <h3 class="text-left">DANH MỤC</h3>
     <table class="table table-stripper">
         <thead>
             <th>ID</th>

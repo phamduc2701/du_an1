@@ -35,10 +35,10 @@
 </style>
 </head>
 <body>
-<div class="login-form">
-    <form action="{{route('login')}}" method="post">
+<div class="login-form" style="margin-top: 125px;">
+    <form action="{{route('login')}}" method="post" style="background: #BDBDBD;">
         @csrf
-        <h2 class="text-center">Log in</h2>       
+        <h2 class="text-center">Đăng nhập</h2>
         <div class="form-group">
             <input type="text" 
             @isset($email)
@@ -55,7 +55,7 @@
             </div>
         @endisset
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" class="btn btn-info btn-block">Login</button>
         </div>
         <div class="clearfix">
             <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
