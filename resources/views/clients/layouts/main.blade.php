@@ -7,7 +7,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dự án 1 | See Food </title>
+    <title>Hoa quả sạch </title>
     @include('clients.layouts.style')
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> seeFood162@gmail.com</li>
-                                <li>See Food kính chào quý khách</li>
+                                <li>Hoa quả sạch kính chào quý khách</li>
                             </ul>
                         </div>
                     </div>
@@ -54,9 +54,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="">
-                            <h2>See Food</h2>
-                        </a>
+                        <a href=""><img src="" width="75px" alt=""><h2>Hoa Quả Sạch</h2></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -89,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    
+
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
@@ -101,7 +99,7 @@
                         </ul>
                         @endforeach
                     </div>
-                    
+
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
@@ -129,7 +127,7 @@
                         <div class="hero__text">
                             <span>Sản phẩm sạch</span>
                             <h2>HOA QUẢ <br />SẠCH 100%</h2>
-                            <p>See Food chuỗi cửa hàng sạch</p>
+                            <p>Hoa Quả Sạch chuỗi cửa hàng sạch</p>
                             <a href="#" class="primary-btn">Xem ngay</a>
                         </div>
                     </div>
@@ -138,18 +136,19 @@
         </div>
     </section>
     <!-- Hero Section End -->
-
-    <!-- Categories Section Begin -->
-
-    <!-- Categories Section End -->
-
+    <section class="categories">
+        <div class="container">
+           
+            </div>
+        </div>
+    </section>
     <!-- Featured Section Begin -->
     <section class="featured spad" style="padding-top: 1px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Sản phẩm mới</h2>
+                        <h2>SẢN PHẨM</h2>
                     </div>
                 </div>
             </div>
@@ -169,8 +168,7 @@
                             <p>Giảm giá &nbsp;{{ $item->sale }}%</p>
                             <h6>{{ number_format($item->price)}}&nbsp;vnđ <span style="color:red">/Kg</span></h6>
                             <div class="text-center">
-                                <button href="" class="btn btn-sm btn-primary" style="margin-top:15px">Chi tiết</button>
-                                <a href="" class="btn btn-sm btn-warning" style="margin-top:15px">Mua ngay</a>
+
                             </div>
                         </div>
                     </div>
@@ -204,56 +202,28 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title from-blog__title">
-                        <h2>Tin tức thực phẩm</h2>
+                        <h2>TIN TỨC THỰC PHẨM</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
+            @foreach ($post as $item)
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="{{asset('clients/img/blog/blog-1.jpg')}}" alt="">
+                            <img src="{{$item->image}}" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
+                                <li><i class="fa fa-calendar-o"></i>{{$item->date}}</li>
+                                <li><i class="fa fa-comment-o"></i> 6</li>
                             </ul>
-                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                            <h5><a href="#">{{$item->name}}</a></h5>
+                            <p>{{$item->content}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{asset('clients/img/blog/blog-2.jpg')}}" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{asset('clients/img/blog/blog-3.jpg')}}" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Visit the clean farm in the US</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -266,8 +236,9 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="img/logo.png" alt=""><h2>See Food</h2></a>
                         </div>
+                        <h4 style="color: blue;">Cửa hàng chính</h4>
                         <ul>
                             <li>Address: Số 162 Cầu Giấy, Hà Nội</li>
                             <li>Phone: 0988.212.010</li>
@@ -279,30 +250,31 @@
                     <div class="footer__widget">
                         <h6>Về chúng tôi</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="#">Hỗ trợ</a></li>
+                            <li><a href="#">Hợp tác</a></li>
+                            <li><a href="#">Chế độ phục vụ</a></li>
+                            <li><a href="#">Phản hồi</a></li>
+                            <li><a href="#">Tin see food</a></li>
                         </ul>
+                        
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Hà Nội</a></li>
+                            <li><a href="#">Hồ Chí Minh</a></li>
+                            <li><a href="#">Hải Phòng</a></li>
+                            <li><a href="#">Quảng Ninh</a></li>
+                            <li><a href="#">Yên Bái</a></li>
+                            <li><a href="#">Thanh Hóa</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h6>Vui lòng phản hồi qua email</h6>
+                        <p>Nhận thông tin cập nhật qua E-mail về cửa hàng mới nhất của chúng tôi và các ưu đãi đặc biệt.</p>
                         <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <input type="text" placeholder="Nhập nội dung..">
+                            <button type="submit" class="site-btn">Gửi đi</button>
                         </form>
                         <div class="footer__widget__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>

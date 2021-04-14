@@ -22,14 +22,14 @@
             <label for="">Giảm giá</label>
             <input type="float" name="sale" class="form-control">
         </div>
-        <!-- <div class="form-group">
+        <div class="form-group">
             <label for="">Mô tả</label>
             <textarea name="detail" rows="9" class="form-control"></textarea>
-        </div> -->
-        <div class="form-group">
-            <label for="inputAddress2" class="font-weight-bold">Mô tả</label>
-            <textarea name="detail" id="editor" rows="10" class="form-control">{{ old('detail') }}</textarea>
         </div>
+          <!-- <div class="form-group">
+              <label for="inputAddress2" class="font-weight-bold">Mô tả</label>
+              <textarea name="detail" id="editor" rows="10" class="form-control">{{ old('detail') }}</textarea>
+          </div> -->
         <div class="form-group">
             <label for="">Danh mục</label>
             <select name="cate_id" class="custom-select">

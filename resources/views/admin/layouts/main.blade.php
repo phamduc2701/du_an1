@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dự án | Nhóm 7 </title>
+  <title>Admin | Hoa quả sạch </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   @include('admin.layouts.style')
@@ -128,7 +128,7 @@
             <img src="" class="img-circle elevation-2" alt="">
           </div>
           <div class="info">
-            <a href="" class="d-block">Sản phẩm sạch (See Food)</a>
+            <a href="" class="d-block" style="text-align: center">Hoa Quả Sạch</a>
           </div>
         </div>
 
